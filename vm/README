@@ -1,0 +1,5 @@
+❗️Why This is Necessary on macOS
+
+The serial fixture project uses socat and PTY-based serial port simulation inside Docker containers. Unfortunately, macOS runs Docker within a lightweight virtual machine, and its kernel does not allow direct access to PTY devices like /dev/ttyS0. This results in errors or broken behavior when trying to simulate serial devices.
+
+Using Multipass provides a true Linux kernel where PTY simulation and Docker's device mapping behave as expected. This workaround enables realistic serial test simulation that cannot reliably run on macOS due to these system-level limitations.
